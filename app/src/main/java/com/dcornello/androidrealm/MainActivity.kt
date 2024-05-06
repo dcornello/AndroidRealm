@@ -1,6 +1,7 @@
     package com.dcornello.androidrealm
 
     import android.os.Bundle
+    import android.view.WindowManager
     import androidx.activity.ComponentActivity
     import androidx.activity.compose.setContent
     import androidx.compose.foundation.background
@@ -22,13 +23,15 @@
     import com.dcornello.androidrealm.ui.theme.AndroidRealmTheme
     import androidx.compose.runtime.getValue
     import androidx.compose.runtime.setValue
+    import androidx.core.view.WindowCompat
 
     class MainActivity : ComponentActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
+            WindowCompat.setDecorFitsSystemWindows(window, false)
             setContent {
                 AndroidRealmTheme {
-                    LoginScreen()
+                    DiegoLoginScreen()
                 }
             }
         }
