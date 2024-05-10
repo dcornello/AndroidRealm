@@ -31,7 +31,7 @@
             WindowCompat.setDecorFitsSystemWindows(window, false)
             setContent {
                 AndroidRealmTheme {
-                    DiegoLoginScreen()
+                    MarioLoginScreen()
                 }
             }
         }
