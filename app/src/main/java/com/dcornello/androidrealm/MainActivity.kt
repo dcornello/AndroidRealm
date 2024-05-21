@@ -4,6 +4,7 @@
     import androidx.activity.ComponentActivity
     import androidx.activity.compose.setContent
     import androidx.compose.foundation.background
+    import androidx.compose.foundation.layout.Arrangement
     import androidx.compose.foundation.layout.Column
     import androidx.compose.foundation.layout.fillMaxSize
     import androidx.compose.foundation.layout.padding
@@ -24,9 +25,12 @@
     import androidx.compose.runtime.getValue
     import androidx.compose.runtime.setValue
     import androidx.core.view.WindowCompat
+    import androidx.navigation.compose.NavHost
+    import androidx.navigation.compose.composable
+    import androidx.navigation.compose.rememberNavController
 
     class MainActivity : ComponentActivity() {
-        val loginScreenViewModel = MarioLoginScreenViewModel()
+
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -36,7 +40,7 @@
 
             setContent {
                 AndroidRealmTheme {
-
+                    /*
                     val stateStream by loginScreenViewModel.uiState.collectAsState()
 
                     MarioLoginScreen(
@@ -45,7 +49,12 @@
                         onPasswordChange = loginScreenViewModel::passwordChange,
                         onLoginTap = { },
                         onTooglePasswordVisibilityTap = loginScreenViewModel::tooglePasswordVisibility
-                    )
+                    )*/
+
+                    val navController = rememberNavController()
+    
+                    AuthenticationGraph(navController = navController)
+
                 }
             }
         }
