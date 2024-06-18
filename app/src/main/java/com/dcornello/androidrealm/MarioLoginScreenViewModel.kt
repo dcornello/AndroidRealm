@@ -5,14 +5,13 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class MarioLoginScreenViewModel: ViewModel() {
+class MarioLoginScreenViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(LoginScreenUIState(passwordIsVisible = false, email = "", password = ""))
     val uiState: StateFlow<LoginScreenUIState> = _uiState.asStateFlow()
 
@@ -40,6 +39,7 @@ class MarioLoginScreenViewModel: ViewModel() {
     fun navigateToPage1() {
         sendSideEffect(SideEffects.NavigateToPage1(email = _uiState.value.email))
     }
+
     private fun sendSideEffect(sideEffects: SideEffects) {
         viewModelScope.launch {
             _sideEffects.emit(sideEffects)
@@ -47,8 +47,7 @@ class MarioLoginScreenViewModel: ViewModel() {
     }
 
     sealed class SideEffects {
-        data class NavigateToPage1(val email: String): SideEffects()
+        data class NavigateToPage1(val email: String) : SideEffects()
 
     }
-
 }

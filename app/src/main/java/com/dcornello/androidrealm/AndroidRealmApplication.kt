@@ -3,5 +3,4 @@ import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class AndroidRealmApplication: Application() {
-}
+class AndroidRealmApplication: Application()

@@ -43,5 +43,4 @@ fun AuthenticationGraph(navController: NavHostController) {
         //composable("friendslist") { FriendsList( /* ... */ ) }
         // Add more destinations similarly.
     }
-
 }
