@@ -25,12 +25,18 @@ import androidx.core.view.WindowCompat
 import androidx.navigation.compose.rememberNavController
 import com.dcornello.androidrealm.ui.theme.AndroidRealmTheme
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    @Inject
+    lateinit var analyticsService: AnalyticsService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        analyticsService.trackHello()
+
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setContent {
